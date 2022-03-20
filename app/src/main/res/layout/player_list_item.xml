@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <CheckBox
-        android:id="@+id/checkbox_player_active"
-        android:layout_width="wrap_content"
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="checkboxHidden"
+            type="Boolean"/>
+        <variable
+            name="switchHidden"
+            type="Boolean"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/edit_text_player_name"
-        app:layout_constraintTop_toTopOf="@id/edit_text_player_name"/>
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditText
-        android:id="@+id/edit_text_player_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="@string/player_name"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/checkbox_player_active"
-        app:layout_constraintEnd_toStartOf="@id/switch_player_type"/>
+        <CheckBox
+            android:id="@+id/checkbox_player_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{checkboxHidden}"
+            android:visibility="@{checkboxHidden?View.INVISIBLE: View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/edit_text_player_name"
+            app:layout_constraintTop_toTopOf="@id/edit_text_player_name"/>
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_player_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/edit_text_player_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/edit_text_player_name"/>
+        <EditText
+            android:id="@+id/edit_text_player_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/player_name"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/checkbox_player_active"
+            app:layout_constraintEnd_toStartOf="@id/switch_player_type"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_player_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{switchHidden}"
+            android:visibility="@{switchHidden?View.INVISIBLE: View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/edit_text_player_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_text_player_name"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

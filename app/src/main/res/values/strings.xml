@@ -5,4 +5,8 @@
     <string name="game">Game</string>
     <string name="play_button">Play Button</string>
     <string name="player_name">Player Name</string>
+    <string name="roll">Roll</string>
+    <string name="or">Or</string>
+    <string name="pass">Pass</string>
+    <string name="coin_icon">Coin icon</string>
 </resources>
